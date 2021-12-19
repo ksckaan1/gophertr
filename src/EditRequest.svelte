@@ -51,13 +51,17 @@
 		];
 	};
 
-    async function fetchGopher() {
+function fetchGopher() {
 		var req = new XMLHttpRequest();
 		req.open("GET", "/api/gopher/"+gopherid, true);
 		req.onload = () => {
 			if (req.status == 200) {
 				preview = JSON.parse(req.responseText)
                 isGopherLoaded = true
+
+                if (!preview.job_status) {
+                    preview.job_status = ""
+                }
 
                 if ( preview.profile_img_url){
                     preferAvatar = "twitter";
