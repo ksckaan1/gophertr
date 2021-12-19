@@ -74,6 +74,7 @@ func main() {
 	admin.Get("/api/requests", getRequests)                     //List all requests
 	admin.Get("/api/request/delete/:id", deleteReqAPI)          // delete a request
 
+	PORT := os.Getenv("PORT")
 	//Listen and serve
-	log.Fatalln(app.Listen(":5555"))
+	log.Fatalln(app.Listen(":" + PORT))
 }
