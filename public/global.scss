@@ -1,0 +1,90 @@
+@import './defaults';
+@import './card';
+
+html{
+    scroll-behavior: smooth;
+}
+//Fundamental Definitions
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+    color: $white;
+}
+body{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    background-color: $white;
+    color: $black;
+}
+
+
+loading-gophers{
+    margin-top: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+.container{
+    margin: auto;
+    width: 90%;
+    color: $black;
+    margin-top: 100px;
+}
+
+.filterZone{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 20px 10px;
+    color: $black;
+    background-color: $softBG;
+    border-left: 8px solid $darkPurple;
+    border-radius: 2px;
+
+    .searchInput {
+		border-radius: 2px;
+		border: 1.5px solid $darkPurple;
+		background-color: transparent;
+		font-size: 16px;
+        -webkit-padding: 0.4em 0;
+        padding: 0.4em;
+
+        &:focus{
+            outline-width: 0;
+        }
+    }
+
+    .filterButton{
+        padding: 0.4em;
+        font-size: 16px;
+        border-radius: 2px;
+        border: 1.5px solid $black;
+        background-color: $darkPurple;
+        color: $white;
+        cursor: pointer;
+        transition: background-color .5s;
+        &:hover{
+            background: $lightPurple;
+        }
+    }
+    .lookingButton{
+        background-color: rgb(15, 97, 15);
+        &:hover{
+            background: rgb(22, 129, 22);
+        }
+    }
+    .hiringButton{
+        background-color: #c86b00;
+        &:hover{
+            background: #d87505;
+        }
+    }
+
+}

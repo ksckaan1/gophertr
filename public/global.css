@@ -1,0 +1,396 @@
+.gophers {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.gopher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 2px;
+  background-color: #2c165c;
+  color: #f1efef;
+  max-width: 400px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 300px;
+  height: 200px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.4);
+          box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.4);
+}
+
+.gopher .leftSide {
+  width: 100px;
+  color: #f1efef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 10px;
+}
+
+.gopher .leftSide .companySide {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  display: inline;
+  padding: 3px 5px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.gopher .leftSide .avatar {
+  border-radius: 2px;
+  background-color: #f1efef;
+  width: 80px;
+  height: 80px;
+}
+
+.gopher .leftSide .jobStatusSide {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.gopher .rightSide {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #1a1a1a;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 100%;
+  padding: 15px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.gopher .rightSide .topSide {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.gopher .rightSide .topSide .name {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.gopher .rightSide .topSide .description {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.gopher .rightSide .topSide .description .socialLinks {
+  color: #474747;
+  height: 100%;
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gopher .rightSide .topSide .description .socialLinks a {
+  display: block;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+}
+
+.gopher[cardType="looking"] {
+  background-color: #0f610f;
+}
+
+.gopher[cardType="hiring"] {
+  background-color: #c86b00;
+}
+
+.gopher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 2px;
+  background-color: #2c165c;
+  color: #f1efef;
+  max-width: 400px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 300px;
+  height: 200px;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.4);
+          box-shadow: 0px 0px 10px rgba(1, 1, 1, 0.4);
+}
+
+.gopher .leftSide {
+  width: 100px;
+  color: #f1efef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px 10px;
+}
+
+.gopher .leftSide .companySide {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  font-weight: 500;
+  display: inline;
+  padding: 3px 5px;
+  text-align: center;
+  word-break: break-all;
+}
+
+.gopher .leftSide .avatar {
+  border-radius: 2px;
+  background-color: #f1efef;
+  width: 80px;
+  height: 80px;
+  background-size: 80px 80px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.gopher .leftSide .jobStatusSide {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.gopher .rightSide {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  color: #1a1a1a;
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 100%;
+  padding: 15px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.gopher .rightSide .topSide {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.gopher .rightSide .topSide .name {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 10px;
+}
+
+.gopher .rightSide .topSide .description {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.7);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+
+.gopher .rightSide .topSide .description .socialLinks {
+  color: #474747;
+  height: 100%;
+  margin-top: 10px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.gopher .rightSide .topSide .description .socialLinks a {
+  display: block;
+  text-decoration: none;
+  width: 24px;
+  height: 24px;
+}
+
+.gopher[cardType="looking"] {
+  background-color: #0f610f;
+}
+
+.gopher[cardType="hiring"] {
+  background-color: #c86b00;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #f1efef;
+}
+
+body {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f1efef;
+  color: #1a1a1a;
+}
+
+loading-gophers {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container {
+  margin: auto;
+  width: 90%;
+  color: #1a1a1a;
+  margin-top: 100px;
+}
+
+.filterZone {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  padding: 20px 10px;
+  color: #1a1a1a;
+  background-color: #ccb9f7;
+  border-left: 8px solid #2C165C;
+  border-radius: 2px;
+}
+
+.filterZone .searchInput {
+  border-radius: 2px;
+  border: 1.5px solid #2C165C;
+  background-color: transparent;
+  font-size: 16px;
+  -webkit-padding: 0.4em 0;
+  padding: 0.4em;
+}
+
+.filterZone .searchInput:focus {
+  outline-width: 0;
+}
+
+.filterZone .filterButton {
+  padding: 0.4em;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1.5px solid #1a1a1a;
+  background-color: #2C165C;
+  color: #f1efef;
+  cursor: pointer;
+  -webkit-transition: background-color .5s;
+  transition: background-color .5s;
+}
+
+.filterZone .filterButton:hover {
+  background: #411F89;
+}
+
+.filterZone .lookingButton {
+  background-color: #0f610f;
+}
+
+.filterZone .lookingButton:hover {
+  background: #168116;
+}
+
+.filterZone .hiringButton {
+  background-color: #c86b00;
+}
+
+.filterZone .hiringButton:hover {
+  background: #d87505;
+}
+/*# sourceMappingURL=global.css.map */
