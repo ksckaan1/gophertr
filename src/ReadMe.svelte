@@ -6,6 +6,20 @@
     <div class="title">Amaç</div>
     <p>Bu uygulamanın amacı Go programlama dili ile ilgilenelerin (Gopher'ların) birbirleri ile irtibatta bulunabilmelerini kolaylaştırmak, iş arayan ve işçi arayan şahıs veya şirketlere kolaylık sağlamaktır.</p>
 
+    <div class="title">Nasıl Düzenleme Yapılır?</div>
+    <p>Bir Gopher'ı düzenlemek için profil resminin üzerinde gelip <b>kalem ikonuna</b> tıklayın.
+        Ardından düzenlemek istediğiniz kısımlarda değişiklik yapın.
+    </p>
+    <p>
+        Daha sonra <b>Düzenleme isteğinde Bulun</b> butonuna basabilirsiniz.
+    </p>
+    <p>
+        Yönetici onayından sonra değişiklikler görüntülenebilecektir.
+    </p>
+    <p>
+        Silme isteğini de düzenleme sayfasından gönderebilirsiniz.
+    </p>
+
     <div class="title">Kullanılan Teknolojiler</div>
     <ul>
         <li>Go &rightarrow; <a href="https://golang.org">Website</a></li>
@@ -19,6 +33,7 @@
     <p>Uygulama hakkında görüş veya şikayet bildirmek için Twitter üzerinden Kaan Kuscu(<a href="https://twitter.com/ksckaan1">@ksckaan1</a>) kullanıcısına DM yoluyla iletişim kurabilirsiniz.</p>
     <div class="title">Katkıda Bulunun</div>
     <p>Katkıda bulunmak için <a href="https://github.com/ksckaan1/gophertr">GitHub reposu</a>'na PR'da bulunabilirsiniz.</p>
+    
 </div>
 <style>
     a{
