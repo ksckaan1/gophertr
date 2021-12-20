@@ -1,1 +1,1 @@
-https://gophertr.herokuapp.com
+http://gophertr.kaanksc.com
