@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -393,7 +394,66 @@ func deleteRequestAPI(c *fiber.Ctx) error {
 	})
 }
 
-func deleteReqAPI(c *fiber.Ctx) error {
+func acceptReqAPI(c *fiber.Ctx) error {
+	var incomingReq requestData
+	err := c.BodyParser(&incomingReq)
+
+	if err != nil {
+		c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"message": "error when parsing req body",
+		})
+	}
+
+	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://" + mongodbUser + ":" + mongodbPass + "@cluster-frankfurt.4qfon.mongodb.net/gophertr?retryWrites=true&w=majority"))
+	if err != nil {
+		return c.SendString(fmt.Sprintf("%v", err))
+	}
+	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
+	err = client.Connect(ctx)
+	if err != nil {
+		return c.SendString(fmt.Sprintf("%v", err))
+	}
+	defer client.Disconnect(ctx)
+	gophersCollection := client.Database("gophertr").Collection("gopherlist")
+	filter := bson.M{"_id": incomingReq.NewData.ID}
+	if incomingReq.ReqType == "edit" {
+		_, err = gophersCollection.ReplaceOne(ctx, filter, incomingReq.NewData)
+
+		if err != nil {
+			return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+				"message": "error when editing gopher",
+			})
+		}
+	} else if incomingReq.ReqType == "delete" {
+		_, err = gophersCollection.DeleteOne(ctx, filter)
+		if err != nil {
+			return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+				"message": "error when deleting gopher",
+			})
+		}
+
+	} else {
+		return c.Status(http.StatusBadRequest).JSON(fiber.Map{
+			"message": " bad request type",
+		})
+	}
+	requestsCollection := client.Database("gophertr").Collection("requests")
+
+	_, err = requestsCollection.DeleteOne(ctx, bson.M{"_id": incomingReq.ID})
+
+	if err != nil {
+		return c.Status(http.StatusInternalServerError).JSON(fiber.Map{
+			"message": "error when deleting request",
+		})
+	}
+
+	log.Printf("%s request success", incomingReq.ReqType)
+	return c.Status(http.StatusOK).JSON(fiber.Map{
+		"message": "Operation Successfully!",
+	})
+}
+
+func rejectReqAPI(c *fiber.Ctx) error {
 	reqIDParam := c.Params("id")
 	reqid, _ := primitive.ObjectIDFromHex(reqIDParam)
 	client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://" + mongodbUser + ":" + mongodbPass + "@cluster-frankfurt.4qfon.mongodb.net/gophertr?retryWrites=true&w=majority"))

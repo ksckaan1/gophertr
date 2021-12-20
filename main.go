@@ -72,7 +72,8 @@ func main() {
 	app.Post("/api/gopher/edit-request", editRequestAPI)        //edit request gopher api
 	app.Get("/api/gopher/delete-request/:id", deleteRequestAPI) //delete gopher api
 	admin.Get("/api/requests", getRequests)                     //List all requests
-	admin.Get("/api/request/delete/:id", deleteReqAPI)          // delete a request
+	admin.Get("/api/request/reject/:id", rejectReqAPI)          // delete a request
+	admin.Post("/api/request/accept", acceptReqAPI)             // delete a request
 
 	PORT := os.Getenv("PORT")
 	//Listen and serve

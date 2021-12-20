@@ -1,6 +1,7 @@
 <svelte:options tag="dashboard-zone"/>
 <script>
-let requests;
+    import {fade} from "svelte/transition";
+let requests=[];
 
 let new_data={social:{}}
 let old_data={social:{}}
@@ -24,20 +25,41 @@ const showDiff = (req, e)=>{
     new_data = req.new_data
     old_data = req.old_data
 }
-
-const rejectReq = (request, e)=>{
+const deleteIndex = (toRemove)=>{
+    let newReqs =[]
+    requests.forEach((request, index)=>{
+        if (index != toRemove){
+            newReqs = [...newReqs,request]
+        }
+    })
+    requests = newReqs
+}
+const acceptReq = (request,i)=>{
     let reqID = request.id
     let req = new XMLHttpRequest();
-    req.open("GET","/admin/api/request/delete/"+reqID, true)
+    req.open("POST","/admin/api/request/accept/", true)
+    req.setRequestHeader('Content-Type', 'application/json')
     req.onload = ()=>{
         if (req.status == 200){
-            e.remove()
+            deleteIndex(i)
+        }else{
+            alert(req.responseText)
+        }
+    }
+    req.send(JSON.stringify(request))
+}
+const rejectReq = (request, i)=>{
+    let reqID = request.id
+    let req = new XMLHttpRequest();
+    req.open("GET","/admin/api/request/reject/"+reqID, true)
+    req.onload = ()=>{
+        if (req.status == 200){
+            deleteIndex(i)
         }else{
             alert(req.responseText)
         }
     }
     req.send(null)
-
 }
 </script>
 <div class="content">
@@ -47,8 +69,8 @@ const rejectReq = (request, e)=>{
     {:else if requests.length == 0}
     no request here
     {:else}
-    {#each requests as request}
-    <div class="request {request.req_type}">
+    {#each requests as request, i}
+    <div transition:fade class="request {request.req_type}">
         <div class="head">
             {request.old_data.name}
         </div>
@@ -58,8 +80,8 @@ const rejectReq = (request, e)=>{
         </div>
         {/if}
         <div class="tail">
-            <button class="accept">Accept</button>
-            <button on:click={(e)=> rejectReq(request, this)} class="reject">Reject</button>
+            <button on:click={()=> acceptReq(request, i)} class="accept">Accept</button>
+            <button on:click={()=> rejectReq(request, i)} class="reject">Reject</button>
         </div>
     </div>
     {#if request.req_type == "edit"}
